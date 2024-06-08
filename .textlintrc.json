@@ -1,5 +1,7 @@
 {
   "plugins": {},
   "filters": {},
-  "rules": {}
+  "rules": {
+    "no-dropping-the-ra": true
+  }
 }

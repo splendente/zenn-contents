@@ -8,12 +8,20 @@
     "new:article": "zenn new:article",
     "new:book": "zenn new:book",
     "preview": "zenn preview",
-    "textlint": "textlint ."
+    "textlint": "textlint .",
+    "textlint:fix": "textlint . --fix",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.md": "pnpm textlint:fix"
   },
   "dependencies": {
     "zenn-cli": "^0.1.154"
   },
   "devDependencies": {
-    "textlint": "^14.0.4"
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.5",
+    "textlint": "^14.0.4",
+    "textlint-rule-no-dropping-the-ra": "^3.0.0"
   }
 }
