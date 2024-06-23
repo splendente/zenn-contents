@@ -22,6 +22,8 @@
     "husky": "^9.0.11",
     "lint-staged": "^15.2.5",
     "textlint": "^14.0.4",
+    "textlint-rule-ja-unnatural-alphabet": "^2.0.1",
+    "textlint-rule-no-doubled-joshi": "^5.1.0",
     "textlint-rule-no-dropping-the-ra": "^3.0.0"
   }
 }

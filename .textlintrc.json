@@ -2,6 +2,8 @@
   "plugins": {},
   "filters": {},
   "rules": {
-    "no-dropping-the-ra": true
+    "no-dropping-the-ra": true,
+    "no-doubled-joshi": true,
+    "ja-unnatural-alphabet": true
   }
 }
