@@ -200,7 +200,7 @@ export default defineEventHandler(async() => {
 ....。
 
 いつまで待っても変更内容が読み上げられません。
-理由は当然と言えば当然なのですが、`<NuxtRouteAnnouncer />` の `atomic` という props の初期値が `off` だからです。
+理由は当然と言えば当然なのですが、`<NuxtRouteAnnouncer />` の `politeness` という props の初期値が `off` だからです。
 
 `politeness` という props を設定することで読み上げのタイミングを変更することができます。
 この `politeness` は最終的に `aria-live` 属性に設定されます。
