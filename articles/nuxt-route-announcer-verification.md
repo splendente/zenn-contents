@@ -283,3 +283,27 @@ https://developer.mozilla.org/ja/docs/Web/Accessibility/ARIA/Attributes/aria-ato
 
 以上が、`<NuxtRouteAnnouncer />` コンポーネントについてでした。
 ページタイトルが変更された時にユーザーに通知を行いたい場合はぜひ`<NuxtRouteAnnouncer />`を活用し、アクセシビリティを向上させていきましょう。
+
+## おまけ
+
+せっかくなので `<NuxtRouteAnnouncer />` の使い方だけでなく、`<NuxtRouteAnnouncer />` がどのようにページタイトルの読み上げを実現しているのか、実装を簡単に追ってみようと思います。
+
+`packages/nuxt/src/app/components/nuxt-route-announcer.ts` に `<NuxtRouteAnnouncer />` のソースコードがあります。
+
+特に注目したい点が `return` 箇所です。
+
+https://github.com/nuxt/nuxt/blob/main/packages/nuxt/src/app/components/nuxt-route-announcer.ts#L24-L46
+
+h関数を使用して、`span` タグを生成していることが分かります。
+
+実際にアプリを起動した状態で DevTools を使用して確認すると、確かに `span` タグが生成されています。
+
+![](/images/nuxt-route-announcer-verification/span.png)
+
+`span` タグには、`props` で指定した `atomic` と `politeness` の値が、`aria-atomic` と `aria-live` の値として指定されています。
+
+つまり、この `span` タグ内のコンテンツが変更された時に、ユーザーに対して通知が行われるという仕組みです。
+
+ページタイトルと聞くと `title` タグのことかな？と想像してしまうのですが、読み上げの対象となるライブリージョン領域は、コンテンツ内に存在しているんですね。
+
+推測にはなってしまいますが、`title` タグ自体に `aria-atomic` や `aria-live` などの `WAI-ARIA` を直接指定することができないため、上記のような実装を行なっているのではないかと思います。
