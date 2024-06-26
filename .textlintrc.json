@@ -6,6 +6,10 @@
     "no-doubled-joshi": true,
     "ja-unnatural-alphabet": true,
     "no-hankaku-kana": true,
-    "ja-no-mixed-period": true
+    "ja-no-mixed-period": {
+      "allowPeriodMarks": [
+        ":"
+      ]
+    }
   }
 }
