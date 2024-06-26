@@ -4,6 +4,8 @@
   "rules": {
     "no-dropping-the-ra": true,
     "no-doubled-joshi": true,
-    "ja-unnatural-alphabet": true
+    "ja-unnatural-alphabet": true,
+    "no-hankaku-kana": true,
+    "ja-no-mixed-period": true
   }
 }
