@@ -172,6 +172,7 @@ useHead({
 ```
 
 最後にボタンをクリックした時にユーザー情報を1.5秒後に返すAPIを作成します。
+`server/api/user.ts` を作成し、次の内容を追加します。
 
 ```typescript
 export default defineEventHandler(async() => {
@@ -246,7 +247,7 @@ https://developer.mozilla.org/ja/docs/Web/Accessibility/ARIA/Attributes/aria-ato
 値が `true` の場合、読み上げはライブリージョン領域を全て読み上げます。
 逆に `false` の場合、変更箇所のみが読み上げられます。
 
-app.vue を次のように変更します。
+`app.vue` を次のように変更します。
 
 ```vue
 <template>
