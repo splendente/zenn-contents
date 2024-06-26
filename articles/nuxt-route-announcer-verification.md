@@ -77,7 +77,7 @@ https://nuxt.com/docs/api/components/nuxt-route-announcer
 
 ただし、更新された内容が全て重要な情報であるとは限りません。
 
-ユーザーにとって重要な変更を必要なタイミングで通知することでアクセシビリティを向上させることができます。
+ユーザーにとって重要な変更を必要なタイミングでユーザーに通知することでアクセシビリティを向上させることができます。
 
 `<NuxtRouteAnnouncer />` は、ページのタイトルの変更を通知する機能です。
 
@@ -196,12 +196,12 @@ export default defineEventHandler(async() => {
 
 ### NuxtRouteAnnouncer で変更を読み上げる
 
-事前準備を終えた状態でアプリを起動し、スクリーンリーダーをオンにした状態でアプリへアクセスし、ボタンを押してみます。
+事前準備を終えた状態でアプリを起動し、スクリーンリーダーをオンにした状態でアプリへアクセスし、「名前を取得する」というボタンを押してみます。
 
-....。
+少し待つと変更内容が「loading...」と読み上げられます。
+そして、続けて「home」と読み上げられました。
 
-いつまで待っても変更内容が読み上げられません。
-理由は当然と言えば当然なのですが、`<NuxtRouteAnnouncer />` の `politeness` という props の初期値が `off` だからです。
+変更があった時にすぐ読み上げられるのではなく、今読み上げている内容を読み終えた後に変更内容が読み上げられるのは、`<NuxtRouteAnnouncer />` の `politeness` という props の初期値が `polite` だからです。
 
 `politeness` という props を設定することで読み上げのタイミングを変更することができます。
 この `politeness` は最終的に `aria-live` 属性に設定されます。
@@ -232,6 +232,20 @@ https://github.com/nuxt/nuxt/blob/c87ca8607cf5dde72979c44abbd0da818d608078/packa
 そして、1.5 秒後に「home」と読み上げられました。
 
 ![](/images/nuxt-route-announcer-verification/home.png)
+
+次に値を `off` に変更してみます。
+
+```vue
+<NuxtRouteAnnouncer politeness="off" />
+```
+
+この状態でボタンを押してしばらく待っても読み上げが行われません。
+`off` は、該当する要素にフォーカスしない限りは読み上げが行われないからです。
+
+:::message
+[yamanoku](https://zenn.dev/yamanoku)さんに頂いた[コメント](https://zenn.dev/link/comments/e01541b6eb145c)を元に上記の内容を修正しました。
+コメントありがとうございます！
+:::
 
 ### 読み上げ内容を変更する
 
@@ -282,7 +296,7 @@ https://developer.mozilla.org/ja/docs/Web/Accessibility/ARIA/Attributes/aria-ato
 ## まとめ
 
 以上が、`<NuxtRouteAnnouncer />` コンポーネントについてでした。
-ページタイトルが変更された時にユーザーに通知を行いたい場合はぜひ`<NuxtRouteAnnouncer />`を活用し、アクセシビリティを向上させていきましょう。
+ページタイトルが変更された時に通知を行いたい場合は、ぜひ`<NuxtRouteAnnouncer />`を活用し、アクセシビリティを向上させていきましょう。
 
 ## おまけ
 
