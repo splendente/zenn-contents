@@ -8,7 +8,7 @@ type Props = {
   to?: string;
 };
 
-const props = defineProps<Props>();
+const { element = 'button', text = '', type = '', href = '', target = '', to = ''} = defineProps<Props>();
 
 defineSlots<{
   icon: () => HTMLImageElement;
@@ -24,24 +24,24 @@ const onClick = () => {
 
 // buttonタグの場合に使用する属性情報と押下時の処理
 const buttonProps = {
-  type: props.type,
+  type: type,
   onClick,
 };
 
 // aタグの場合に使用する属性情報
 const anchorProps = {
-  href: props.href,
-  target: props.target,
+  href: href,
+  target: target,
 };
 
 // NuxtLinkコンポーネントの場合に使用する属性情報
 const nuxtLinkProps = {
-  to: props.to,
-  target: props.target,
+  to: to,
+  target: target,
 };
 
 const component = computed(() => {
-  switch (props.element) {
+  switch (element) {
     case "button":
       return {
         element: "button",
