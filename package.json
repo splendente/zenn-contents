@@ -10,7 +10,9 @@
     "preview": "zenn preview",
     "textlint": "textlint .",
     "textlint:fix": "textlint . --fix",
-    "prepare": "husky"
+    "prepare": "husky",
+    "examples:6d9f404163f259:dev": "pnpm run --filter=./examples/6d9f404163f259 dev",
+    "examples:nuxt-route-announcer-verification:dev": "pnpm run --filter=./examples/nuxt-route-announcer-verification dev"
   },
   "lint-staged": {
     "*.md": "pnpm textlint:fix"
