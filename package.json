@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "husky": "^9.0.11",
-    "lint-staged": "^15.2.5",
+    "lint-staged": "^16.0.0",
     "textlint": "^14.0.4",
     "textlint-rule-ja-no-mixed-period": "^3.0.1",
     "textlint-rule-ja-unnatural-alphabet": "^2.0.1",
